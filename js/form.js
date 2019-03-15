@@ -7,6 +7,12 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     var pacienteTr = montarTr(paciente);
 
+    if(!validaPaciente(paciente)){
+        console.log("Paciente inválido");
+        return;
+    }
+
+
     //Adicionar o paciente na tabela
     var tabela = document.querySelector("#tabela-pacientes");
 
@@ -47,4 +53,12 @@ function  montaTd(dado,classe) {
     td.classList.add(classe);
 
     return td;
+}
+
+function validaPaciente(paciente) {
+    if(validaPeso(paciente.peso)){
+        return true;
+    }else{
+        return false;
+    }
 }
